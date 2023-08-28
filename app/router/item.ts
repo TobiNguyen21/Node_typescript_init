@@ -1,6 +1,7 @@
 import * as express from 'express';
 import { IServer } from '../interfaces/serverInterface';
 import item_Controller from '../controllers/item_Controller';
+import asyncHandle from '../middleware/async';
 
 export default class ItemRouter {
     public router: express.Router;
@@ -11,6 +12,6 @@ export default class ItemRouter {
     }
 
     public routes(): void {
-        this.router.get('/', item_Controller.get)
+        this.router.get('/', asyncHandle(item_Controller.get));
     }
 }
