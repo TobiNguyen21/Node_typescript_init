@@ -12,7 +12,7 @@ export default class MongoDb {
      */
     public async connect(): Promise<void> {
         try {
-            await mongoose.connect(`mongodb+srv://${this.username_db}:${this.password_db}@cluster0.ripeili.mongodb.net/?retryWrites=true&w=majority`);
+            await mongoose.connect(`mongodb+srv://${this.username_db}:${this.password_db}@projecttypescript.bqvjyfg.mongodb.net/?retryWrites=true&w=majority`);
             logger.info('Database connected');
         } catch (error) {
             logger.error(`Error connecting to database: ${error}`);

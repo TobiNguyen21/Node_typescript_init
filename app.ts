@@ -1,6 +1,7 @@
 import express from 'express';
 import Middleware from './app/configs/middleware';
 import MongoDb from './app/configs/database';
+import IndexRouter from './app/router/index';
 
 const mongodb = new MongoDb();
 (async () => {
@@ -13,6 +14,7 @@ class App {
     constructor() {
         this.app = express();
         Middleware.init(this);
+        IndexRouter.init(this);
     }
 }
 
