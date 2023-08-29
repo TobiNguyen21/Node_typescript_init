@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import ErrorResponse from '../utils/errorResponse';
 import { IServer } from '../interfaces/serverInterface';
+import { notify } from '../configs/notify';
 
 export default class ErrorHandle {
     static init(server: IServer): void {
@@ -11,7 +12,7 @@ export default class ErrorHandle {
         let error: any = { ...err }
 
         if (err.name === "CastError") {
-            let message: string = 'Không tồn tại dữ liệu';
+            let message: string = notify.ERROR_CASTERROR;
             error = new ErrorResponse(404, message);
         }
 
