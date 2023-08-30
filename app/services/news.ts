@@ -1,5 +1,6 @@
 import Parser from 'rss-parser';
 import fs from 'fs';
+import { VnExpressRss } from '../utils/vnEpressRss';
 
 type CustomFeed = { foo: string };
 type CustomItem = { bar: number };
@@ -21,12 +22,12 @@ export default class Main_service {
             console.log("Get Rss onl");
             const feed = await parser.parseURL(url_rss);
             fs.writeFileSync(linkToFile, JSON.stringify(feed.items));
-            return feed.items;
+            return VnExpressRss.init(feed.items);
         }
         if (option.task == 'off') {
             console.log("Get Rss off");
             const data: Buffer = fs.readFileSync(linkToFile);
-            return JSON.parse(data.toString());
+            return VnExpressRss.init(JSON.parse(data.toString()));
         }
 
     }

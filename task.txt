@@ -1,4 +1,7 @@
 1. Lấy thông tin rss theo danh mục
+2. Lấy tintheo rss vnexpress và custom : "title", "link", "pubDate", "image", "content"
+3 . custom coin : "name", "price", "percent_change_24h"
+4. custom gold: "buy", sell, type
 
 
 //
