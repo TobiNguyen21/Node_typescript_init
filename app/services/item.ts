@@ -1,4 +1,3 @@
-import async from "../middleware/async";
 import MainModel from "../models/item";
 
 export default class Main_service {
