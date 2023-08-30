@@ -12,14 +12,19 @@
     "express-validator": "^7.0.1",
     "helmet": "^7.0.0",
     "mongoose": "^7.4.5",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
     "rss-parser": "^3.13.0",
-    "winston": "^3.10.0"
+    "winston": "^3.10.0",
+    "xml2js": "^0.6.2"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.3",
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
     "@types/node": "^20.5.6",
+    "@types/request-promise": "^4.1.48",
+    "@types/xml2js": "^0.4.11",
     "nodemon": "^3.0.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
