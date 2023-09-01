@@ -14,6 +14,7 @@ export class VnExpressRss {
                 let myImage = content.match(imageRegex);
                 let myContent = content.match(contentRegex);
 
+                news.id = element.id;
                 news.title = element.title;
                 news.link = element.link;
                 news.pubDate = element.pubDate;
