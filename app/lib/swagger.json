@@ -1,0 +1,84 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "API with typescript",
+        "summary": "News app",
+        "description": "This is a sample server for a news app.",
+        "termsOfService": "https://example.com/terms/",
+        "contact": {
+            "name": "API Support",
+            "url": "https://www.example.com/support",
+            "email": "support@example.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.1"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000/api/v1",
+            "description": "Localhost"
+        }
+    ],
+    "tags": [
+        {
+            "name": "category",
+            "description": "api danh muc he thong"
+        }
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/category": {
+            "get": {
+                "tag": [
+                    "category"
+                ],
+                "summary": "get all category",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/category"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "category": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "slug": {
+                        "type": "string"
+                    },
+                    "link": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "status"
+                ]
+            }
+        }
+    }
+}
