@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import Main_service from "../services/item";
+import Main_service from "../services/category";
 import ValidateReq from "../middleware/validateReq";
 
 class Item_controller {
@@ -17,6 +17,15 @@ class Item_controller {
         if (!data) return res.status(200).json({ success: true, data: 'No data' });
         res.status(200).json({
             success: true,
+            data: data
+        })
+    }
+    public async getArticleInCategory(req: Request, res: Response, next: NextFunction): Promise<any> {
+        const data = await Main_service.getArticle({ req, res })
+        if (!data || data.length === 0) return res.status(200).json({ success: true, count: 0, data: 'No data' });
+        res.status(200).json({
+            success: true,
+            count: data.length,
             data: data
         })
     }

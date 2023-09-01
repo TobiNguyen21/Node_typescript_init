@@ -1,7 +1,7 @@
 import * as express from 'express';
 import news_Controller from '../controllers/news_Controller';
 import asyncHandle from '../middleware/async';
-import { validator } from '../validates/item';
+import { validator } from '../validates/category';
 
 export default class NewsRouter {
     public router: express.Router;

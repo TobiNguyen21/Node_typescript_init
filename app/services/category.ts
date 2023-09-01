@@ -1,4 +1,5 @@
-import MainModel from "../models/item";
+import MainModel from "../models/category";
+import News_service from "../services/news";
 
 export default class Main_service {
     static async listItems(params: any, option: any): Promise<any> {
@@ -50,5 +51,11 @@ export default class Main_service {
             return await MainModel
                 .deleteOne({ _id: params.id })
         }
+    }
+    static async getArticle(params: any): Promise<any> {
+        const article = await MainModel.findById(params.req.params.id);
+        params.link = article?.link;
+        params.slug = article?.slug;
+        return await News_service.listItems(params);
     }
 }

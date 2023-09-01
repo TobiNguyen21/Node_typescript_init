@@ -22,5 +22,7 @@ export default class ErrorHandle {
                 success: false,
                 message: error.message || "SEVER ERROR"
             })
+
+        console.log(error);
     }
 }
