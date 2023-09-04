@@ -1,440 +1,434 @@
 {
-    "openapi": "3.1.0",
-    "info": {
-        "title": "API with TypeScript",
-        "summary": "News app",
-        "description": "This is a sample server for a news app.",
-        "termsOfService": "https://example.com/terms/",
-        "contact": {
-            "name": "API Support",
-            "url": "https://www.example.com/support",
-            "email": "support@example.com"
-        },
-        "license": {
-            "name": "Apache 2.0",
-            "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
-        },
-        "version": "1.0.1"
+  "openapi": "3.1.0",
+  "info": {
+    "title": "API with TypeScript",
+    "summary": "News app",
+    "description": "This is a sample server for a news app.",
+    "termsOfService": "https://example.com/terms/",
+    "contact": {
+      "name": "API Support",
+      "url": "https://www.example.com/support",
+      "email": "support@example.com"
     },
-    "servers": [
-        {
-            "url": "http://localhost:3000/api/v1",
-            "description": "Localhost"
-        }
-    ],
-    "tags": [
-        {
-            "name": "category",
-            "description": "API danh mục hệ thống"
-        },
-        {
-            "name": "article",
-            "description": "API tin tức hệ thống"
-        },
-        {
-            "name": "price",
-            "description": "API coin-gold  hệ thống"
-        }
-    ],
-    "consumes": [
-        "application/json"
-    ],
-    "produces": [
-        "application/json"
-    ],
-    "paths": {
-        "/category": {
-            "get": {
-                "tags": [
-                    "category"
-                ],
-                "summary": "Get all categories",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/category"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/category/{id}": {
-            "get": {
-                "tags": [
-                    "category"
-                ],
-                "summary": "Get one category by ID",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ID of the category to retrieve",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/components/schemas/id"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/category"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/category/add": {
-            "post": {
-                "tags": [
-                    "category"
-                ],
-                "summary": "Add a new category",
-                "requestBody": {
-                    "description": "Category object",
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/body_category"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/category"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/category/edit/{id}": {
-            "put": {
-                "tags": [
-                    "category"
-                ],
-                "summary": "Edit a category by ID",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ID of the category to edit",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/components/schemas/id"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "description": "Category object",
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/body_category"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/category"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/category/delete/{id}": {
-            "delete": {
-                "tags": [
-                    "category"
-                ],
-                "summary": "Delete a category by ID",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ID of the category to delete",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/components/schemas/id"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/category"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/category/{id}/article": {
-            "get": {
-                "tags": [
-                    "category"
-                ],
-                "summary": "Get all article in category by ID",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ID of the category to retrieve",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/components/schemas/id"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/article"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/category/{id}/article/{total}": {
-            "get": {
-                "tags": [
-                    "category"
-                ],
-                "summary": "Get all article in category by ID",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ID of the category to retrieve",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/components/schemas/id"
-                        }
-                    },
-                    {
-                        "name": "total",
-                        "in": "path",
-                        "description": "get total article",
-                        "required": true,
-                        "schema": {
-                            "type": "number",
-                            "format": "int64"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/article"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/article/{id}": {
-            "get": {
-                "tags": [
-                    "article"
-                ],
-                "summary": "Get all categories",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ID of the article to retrieve",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/components/schemas/id"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/article"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/price/getGold": {
-            "get": {
-                "tags": [
-                    "price"
-                ],
-                "summary": "Get list price gold",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/gold"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/price/getCoin": {
-            "get": {
-                "tags": [
-                    "price"
-                ],
-                "summary": "Get list price coin",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/coin"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+    "license": {
+      "name": "Apache 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "components": {
-        "schemas": {
-            "category": {
-                "type": "object",
-                "properties": {
-                    "_id": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "name": {
-                        "type": "string"
-                    },
-                    "slug": {
-                        "type": "string"
-                    },
-                    "link": {
-                        "type": "string"
-                    }
-                }
-            },
-            "id": {
-                "properties": {
-                    "uuid": {
-                        "type": "string"
-                    }
-                }
-            },
-            "body_category": {
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "type": "string"
-                    },
-                    "slug": {
-                        "type": "string"
-                    },
-                    "link": {
-                        "type": "string"
-                    }
-                }
-            },
-            "article": {
-                "type": "object",
-                "properties": {
-                    "_id": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "title": {
-                        "type": "string"
-                    },
-                    "link": {
-                        "type": "string"
-                    },
-                    "pubDate": {
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "content": {
-                        "type": "string"
-                    }
-                }
-            },
-            "gold": {
-                "type": "object",
-                "properties": {
-                    "buy": {
-                        "type": "string"
-                    },
-                    "sell": {
-                        "type": "string"
-                    },
-                    "type": {
-                        "type": "string"
-                    }
-                }
-            },
-            "coin": {
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "type": "string"
-                    },
-                    "percent_change_24h": {
-                        "type": "number",
-                        "format": "float"
-                    },
-                    "price": {
-                        "type": "number",
-                        "format": "float"
-                    }
-                }
-            }
-        }
+    "version": "1.0.1"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api/v1",
+      "description": "Localhost"
     }
+  ],
+  "tags": [
+    {
+      "name": "category",
+      "description": "API danh mục hệ thống"
+    },
+    {
+      "name": "article",
+      "description": "API tin tức hệ thống"
+    },
+    {
+      "name": "price",
+      "description": "API coin-gold  hệ thống"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/category": {
+      "get": {
+        "tags": [
+          "category"
+        ],
+        "summary": "Get all categories",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/category"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "category"
+        ],
+        "summary": "Add a new category",
+        "requestBody": {
+          "description": "Category object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/body_category"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/category"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/category/{id}": {
+      "get": {
+        "tags": [
+          "category"
+        ],
+        "summary": "Get one category by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the category to retrieve",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/category"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "category"
+        ],
+        "summary": "Edit a category by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the category to edit",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/id"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Category object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/body_category"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/category"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "category"
+        ],
+        "summary": "Delete a category by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the category to delete",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/category"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/category/{id}/article": {
+      "get": {
+        "tags": [
+          "category"
+        ],
+        "summary": "Get all article in category by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the category to retrieve",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/article"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/category/{id}/article/{total}": {
+      "get": {
+        "tags": [
+          "category"
+        ],
+        "summary": "Get all article in category by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the category to retrieve",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/id"
+            }
+          },
+          {
+            "name": "total",
+            "in": "path",
+            "description": "get total article",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/article"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/article/{id}": {
+      "get": {
+        "tags": [
+          "article"
+        ],
+        "summary": "Get article by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the article to retrieve",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/article"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/price/getGold": {
+      "get": {
+        "tags": [
+          "price"
+        ],
+        "summary": "Get list price gold",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/gold"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/price/getCoin": {
+      "get": {
+        "tags": [
+          "price"
+        ],
+        "summary": "Get list price coin",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/coin"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "category": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "link": {
+            "type": "string"
+          }
+        }
+      },
+      "id": {
+        "properties": {
+          "uuid": {
+            "type": "string"
+          }
+        }
+      },
+      "body_category": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "link": {
+            "type": "string"
+          }
+        }
+      },
+      "article": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "title": {
+            "type": "string"
+          },
+          "link": {
+            "type": "string"
+          },
+          "pubDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "content": {
+            "type": "string"
+          }
+        }
+      },
+      "gold": {
+        "type": "object",
+        "properties": {
+          "buy": {
+            "type": "string"
+          },
+          "sell": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
+      "coin": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "percent_change_24h": {
+            "type": "number",
+            "format": "float"
+          },
+          "price": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      }
+    }
+  }
 }

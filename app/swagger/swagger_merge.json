@@ -1,0 +1,9 @@
+{
+    "$ref": "./config.json",
+    "paths": {
+        "$ref": "./paths/path.json"
+    },
+    "components": {
+        "$ref": "./component/component.json"
+    }
+}

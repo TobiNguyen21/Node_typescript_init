@@ -1,0 +1,49 @@
+{
+    "get": {
+        "tags": [
+            "category"
+        ],
+        "summary": "Get all categories",
+        "responses": {
+            "200": {
+                "description": "OK",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/category"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "post": {
+        "tags": [
+            "category"
+        ],
+        "summary": "Add a new category",
+        "requestBody": {
+            "description": "Category object",
+            "required": true,
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "$ref": "#/components/schemas/body_category"
+                    }
+                }
+            }
+        },
+        "responses": {
+            "200": {
+                "description": "OK",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/category"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "get": {
+        "tags": [
+            "price"
+        ],
+        "summary": "Get list price gold",
+        "responses": {
+            "200": {
+                "description": "OK",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/gold"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,95 @@
+{
+    "schemas": {
+        "category": {
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string"
+                },
+                "link": {
+                    "type": "string"
+                }
+            }
+        },
+        "id": {
+            "properties": {
+                "uuid": {
+                    "type": "string"
+                }
+            }
+        },
+        "body_category": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string"
+                },
+                "link": {
+                    "type": "string"
+                }
+            }
+        },
+        "article": {
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "link": {
+                    "type": "string"
+                },
+                "pubDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "content": {
+                    "type": "string"
+                }
+            }
+        },
+        "gold": {
+            "type": "object",
+            "properties": {
+                "buy": {
+                    "type": "string"
+                },
+                "sell": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            }
+        },
+        "coin": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "percent_change_24h": {
+                    "type": "number",
+                    "format": "float"
+                },
+                "price": {
+                    "type": "number",
+                    "format": "float"
+                }
+            }
+        }
+    }
+}
