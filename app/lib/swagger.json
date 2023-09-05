@@ -18,7 +18,7 @@
   },
   "servers": [
     {
-      "url": "https://news-owiq.onrender.com/api/v1",
+      "url": "https://news-api-u9w8.onrender.com/api/v1",
       "description": "Renderhost"
     }
   ],
